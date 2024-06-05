@@ -79,3 +79,9 @@ when `.next` is called.
 Create an iterator that returns each word from a string of words on the call of
 its `.next method (hint: use regex!) Then attach it as a method to the prototype
 of a constructor Words. Hint: research Symbol.iterator!
+
+---
+
+<br/>
+
+**Solution** => [Link to the solution for the Exercises](https://gist.github.com/aegorenkov/2ae91cabf21223bddca8c5b3ef3ec6f6#file-promises-js)
