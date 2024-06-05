@@ -44,7 +44,7 @@ We have a API that gets data from a database, it takes an index parameter and
 returns a promise Your challenge is to use Promise.all to make 3 API calls and
 return all the data when the calls are complete
 
-## Iterators Challenge
+## Iterators Challenges
 
 ### Challenge 1
 
