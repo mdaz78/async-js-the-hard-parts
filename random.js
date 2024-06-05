@@ -40,3 +40,40 @@ console.log(returnNextElement1.next());
 console.log(returnNextElement1.next());
 console.log(returnNextElement1.next());
 console.log(returnNextElement1.next());
+
+// Generators in JS
+function* createFlow3() {
+  yield 4;
+  yield 5;
+  yield 6;
+}
+
+console.log(createFlow3);
+
+const returnNextElement4 = createFlow3();
+console.log(returnNextElement4.next());
+console.log(returnNextElement4.next());
+console.log(returnNextElement4.next());
+console.log(returnNextElement4.next());
+
+// Async Generators
+function callAfterReceivingData(data) {
+  const response = asyncGen.next(data).value;
+  console.log({ response });
+  response.then(printFinalData);
+}
+
+function printFinalData(response) {
+  asyncGen.next(response);
+}
+
+function* createAnAsyncGenerator() {
+  const data = yield fetch("http://jsonplaceholder.typicode.com/posts/1");
+  const response = yield data.json();
+  console.log(response);
+}
+
+const asyncGen = createAnAsyncGenerator();
+const futureDataPromise = asyncGen.next().value;
+
+futureDataPromise.then(callAfterReceivingData);
