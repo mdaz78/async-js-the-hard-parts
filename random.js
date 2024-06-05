@@ -77,3 +77,29 @@ const asyncGen = createAnAsyncGenerator();
 const futureDataPromise = asyncGen.next().value;
 
 futureDataPromise.then(callAfterReceivingData);
+
+// Async - Await
+
+function foo() {
+  console.log("foo");
+}
+
+function bar() {
+  console.log("bar");
+  for (let i = 0; i < 10000000000; i++) {}
+  console.log("done");
+}
+
+async function doSomething() {
+  console.log("Me First");
+  const data = await fetch("http://jsonplaceholder.typicode.com/posts/1");
+  const response = await data.json();
+  console.log(response);
+  console.log("Me third");
+}
+
+doSomething();
+console.log("Me Second");
+
+foo();
+bar();
