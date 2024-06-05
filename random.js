@@ -17,3 +17,26 @@ console.log(returnNextElement());
 console.log(returnNextElement());
 console.log(returnNextElement());
 console.log(returnNextElement());
+
+// Generators
+function createFlow(array) {
+  let i = 0;
+  const inner = {
+    next: function () {
+      const element = array[i];
+      i++;
+      return element;
+    },
+    done: function () {
+      return i >= array.length;
+    },
+  };
+
+  return inner;
+}
+
+const returnNextElement1 = createFlow([4, 5, 6]);
+console.log(returnNextElement1.next());
+console.log(returnNextElement1.next());
+console.log(returnNextElement1.next());
+console.log(returnNextElement1.next());
